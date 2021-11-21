@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Weather | application</title>
+</head>
+<body>
+ <!-- Modal -->
+ <div class="overlay">
+  <div class="modal">
+    <div class="card card-body">
+      <div class="close-btn"></div>
+      <form id="form" class="flex-columns">
+        <div class="form-control">
+          <label for="location" class="mb-2 d-block">Pick a Location</label>
+          <input type="text" id="city">
+        </div>
+        <div class="buttons">
+          <button id="btn-location" class="btn white mb-1">Change Location</button>
+          <button id="btn-clear" class="btn white">Clear</button>
+        </div>
+      </form>
+    </div>
+   </div>
+ </div>
+
+<main class="container mx-auto py-2">
+  <!-- Header Section -->
+ <div class="header mb-2">
+     <h1 class="white mb-1" id="w-city"></h1>
+     <h4 class="white date-container"></h4>
+ </div>
+ <!-- W-Section -->
+<section class="w-section mb-3">
+  <div class="container">
+    <div class="current-temperature flex-rows">
+      <div class="w-img-wrapper">
+        <img id="w-img" class="w-img">
+      </div>
+      <div class="temperature mb-2">
+        <h1 class="white big-font" id="w-temp">21°</h1>
+        <h2 class="white" id="w-condition">Mostly Sunny</h2>
+      </div>
+    </div>
+    <!-- Columns Stuff -->
+    <div class="grid">
+      <!-- Col 1 -->
+      <div>
+        <div class="mb-2">
+          <span class="white mb-1 d-block slightly-big" id="w-high-temp"></span>
+          <span class="slightly-gray">High</span>
+        </div>
+        <div>
+          <span id="w-low-temp" class="white d-block mb-1 slightly-big"></span>
+          <span class="slightly-gray">Low</span>
+        </div>
+      </div>
+      <!-- Col 2 -->
+      <div>
+        <div class="mb-2">
+          <span class="white mb-1 d-block slightly-big" id="w-wind"></span>
+          <span class="slightly-gray">Wind</span>
+        </div>
+        <div>
+          <span id="w-humidity" class="white mb-1 d-block slightly-big"></span>
+          <span class="slightly-gray">Humidity</span>
+        </div>
+      </div>
+
+      <!-- Col 3 -->
+      <div>
+        <div class="mb-2">
+          <span class="white mb-1 d-block slightly-big" id="w-sunrise"></span>
+          <span class="slightly-gray">Sunrise</span>
+        </div>
+        <div>
+          <span id="w-sunset" class="white mb-1 d-block slightly-big"></span>
+          <span class="slightly-gray">Sunset</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ <!-- W-Today-Section -->
+<section class="today-weather mb-3">
+  <h3 class="slightly-gray mb-2">Today's weather</h3>
+  <div class="row flex-rows">
+    <div class="card card-body mr-1">
+      <span class="white mb-1" id="hour">3am</span>
+      <img src="weather_icons_dovora_interactive/day_partial_cloud.svg" id="w-icon" class="small-size mb-1">
+      <span id="w-hourly-temp" class="white">14°</span>
+    </div>
+    <div class="card card-body mr-1">
+      <span class="white mb-1" id="hour">3am</span>
+      <img src="weather_icons_dovora_interactive/day_partial_cloud.svg" id="w-icon" class="mb-1 small-size">
+      <span id="w-hourly-temp" class="white">14°</span>
+    </div>
+    <div class="card card-body mr-1">
+      <span class="white mb-1" id="hour">3am</span>
+      <img src="weather_icons_dovora_interactive/day_partial_cloud.svg" id="w-icon" class="small-size mb-1">
+      <span id="w-hourly-temp" class="white">14°</span>
+    </div>
+    <div class="card card-body mr-1">
+      <span class="white mb-1" id="hour">3am</span>
+      <img src="weather_icons_dovora_interactive/day_partial_cloud.svg" id="w-icon" class="mb-1 small-size">
+      <span id="w-hourly-temp" class="white">14°</span>
+    </div>
+    <div class="card card-body mr-1">
+      <span class="white mb-1" id="hour">3am</span>
+      <img src="weather_icons_dovora_interactive/day_partial_cloud.svg" id="w-icon" class="small-size mb-1">
+      <span id="w-hourly-temp" class="white">14°</span>
+    </div>
+    <div class="card card-body mr-1">
+      <span class="white mb-1" id="hour">3am</span>
+      <img src="weather_icons_dovora_interactive/day_partial_cloud.svg" id="w-icon" class="mb-1 small-size">
+      <span id="w-hourly-temp" class="white">14°</span>
+    </div>
+    <div class="card card-body mr-1">
+      <span class="white mb-1" id="hour">3am</span>
+      <img src="weather_icons_dovora_interactive/day_partial_cloud.svg" id="w-icon" class="mb-1 small-size">
+      <span id="w-hourly-temp" class="white">14°</span>
+    </div>
+  </div>  
+</section>
+ <!-- W-Next-Days-Section -->
+ <section class="next-days">
+   <h3 class="mb-2 slightly-gray">Next 5 days</h3>
+   <div class="card card-body flex-rows mb-1">
+     <div class="grid">
+      <div>
+        <span class="white mb-1 d-block" id="day-name"></span>
+        <span class="slightly-gray" id="date-of-days"></span>
+      </div>
+      <div>
+        <img src="weather_icons_dovora_interactive/day_rain.svg" class="small-size" id="w-icon">
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-low-temp"></span>
+        <span class="slightly-gray">Low</span>
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-high-temp"></span>
+        <span class="slightly-gray">High</span>
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-humidity"></span>
+        <span class="slightly-gray">Humidity</span>
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-wind"></span>
+        <span class="slightly-gray">Wind</span>
+      </div>
+     </div>
+   </div>
+   <div class="card card-body flex-rows mb-1">
+     <div class="grid">
+      <div>
+        <span class="white mb-1 d-block" id="day-name"></span>
+        <span class="slightly-gray" id="date-of-days"></span>
+      </div>
+      <div>
+        <img src="./weather_icons_dovora_interactive/day_rain.svg" class="small-size" id="w-icon">
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-low-temp"></span>
+        <span class="slightly-gray">Low</span>
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-high-temp"></span>
+        <span class="slightly-gray">High</span>
+      </div>
+      <div>
+        <span class="white mb-1 d-block"></span>
+        <span class="slightly-gray" id="w-temp-humidity-hourly">Humidity</span>
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-wind"></span>
+        <span class="slightly-gray">Wind</span>
+      </div>
+     </div>
+   </div>
+   <div class="card card-body flex-rows mb-1">
+     <div class="grid">
+      <div>
+        <span class="white mb-1 d-block" id="day-name"></span>
+        <span class="slightly-gray" id="date-of-days"></span>
+      </div>
+      <div>
+        <img src="weather_icons_dovora_interactive/day_rain.svg" class="small-size" id="w-icon">
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-low-temp"></span>
+        <span class="slightly-gray">Low</span>
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-high-temp"></span>
+        <span class="slightly-gray">High</span>
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-humidity"></span>
+        <span class="slightly-gray">Humidity</span>
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-wind"></span>
+        <span class="slightly-gray">Wind</span>
+      </div>
+     </div>
+   </div>
+   <div class="card card-body flex-rows mb-1">
+     <div class="grid">
+      <div>
+        <span class="white mb-1 d-block" id="day-name"></span>
+        <span class="slightly-gray" id="date-of-days"></span>
+      </div>
+      <div>
+        <img src="weather_icons_dovora_interactive/day_rain.svg" class="small-size" id="w-icon">
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-low-temp"></span>
+        <span class="slightly-gray">Low</span>
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-high-temp"></span>
+        <span class="slightly-gray">High</span>
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-humidity"></span>
+        <span class="slightly-gray">Humidity</span>
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-wind"></span>
+        <span class="slightly-gray">Wind</span>
+      </div>
+     </div>
+   </div>
+   <div class="card card-body flex-rows mb-1">
+     <div class="grid">
+      <div>
+        <span class="white mb-1 d-block" id="day-name"></span>
+        <span class="slightly-gray" id="date-of-days"></span>
+      </div>
+      <div>
+        <img src="weather_icons_dovora_interactive/day_rain.svg" class="small-size" id="w-icon">
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-low-temp"></span>
+        <span class="slightly-gray">Low</span>
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-high-temp"></span>
+        <span class="slightly-gray">High</span>
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-humidity"></span>
+        <span class="slightly-gray">Humidity</span>
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-wind"></span>
+        <span class="slightly-gray">Wind</span>
+      </div>
+     </div>
+   </div>
+   <div class="card card-body flex-rows mb-1">
+     <div class="grid">
+      <div>
+        <span class="white mb-1 d-block" id="day-name"></span>
+        <span class="slightly-gray" id="date-of-days"></span>
+      </div>
+      <div>
+        <img src="weather_icons_dovora_interactive/day_rain.svg" class="small-size" id="w-icon">
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-low-temp"></span>
+        <span class="slightly-gray">Low</span>
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-high-temp"></span>
+        <span class="slightly-gray">High</span>
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-humidity"></span>
+        <span class="slightly-gray">Humidity</span>
+      </div>
+      <div>
+        <span class="white mb-1 d-block" id="w-wind"></span>
+        <span class="slightly-gray">Wind</span>
+      </div>
+     </div>
+   </div>
+ </section>
+</main>
+<script src="storage.js"></script>
+<script src="weather.js"></script>
+<script src="ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,600&display=swap');
+
+*,*::before,*::after{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+
+body{
+min-height: 100vh;
+font-family:'Open Sans', sans-serif;
+overflow-x: hidden;
+background: linear-gradient(to bottom, rgb(43,50,178) 0%, rgb(20,136,204) 100%)no-repeat;
+}
+
+img{
+max-width:100%;
+object-fit: cover;
+}
+
+/* Utilities */
+
+/* Margins & Paddings */
+.py-5{padding:1rem 2rem;}
+.py-1{padding:1.5rem 0 1rem;}
+.py-2{padding:2em 2em;}
+.mb-1{margin-bottom:.5rem;}
+.mr-1{margin-right:1rem;}
+.mb-2{margin-bottom: 1rem;}
+.mb-3{margin-bottom: 3rem !important;}
+.mx-auto{margin: auto;}
+.d-block{display: block;}
+
+.big-font{font-size: 5rem; font-weight:100;}
+.slightly-big{font-size:1.5rem;}
+/* Text-Colors */
+.white{color: #fff;}
+.slightly-gray{color:rgba(255,255,255,0.6);}
+
+.container{max-width: 1100px; position: relative;}
+
+.w-img{
+width: 160px;
+height: 160px;
+}
+
+.small-size{width:50px; height:50px; margin-bottom: .1rem !important;}
+
+.flex-rows{
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.card{
+padding:1rem 1rem;
+flex:1;
+background: rgba(0,0,0,0.15);
+border-radius: 5px;
+}
+
+.modal{
+width:100%;
+height: 300px;
+position:fixed;
+top:20%;
+transition: top 0.6s ease-in-out;
+opacity: 0;
+visibility: hidden;
+max-width: 500px;
+}
+
+.overlay{
+position:fixed;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.4);
+z-index: 1000;
+display: none;
+align-items: center;
+justify-content: center;
+}
+
+.modal.active{
+top:30%;
+opacity:1;
+visibility:visible;
+}
+
+.buttons{
+width: 100%;
+}
+
+.btn{
+padding: .5rem 1rem;
+background:rgb(20,136,204);
+border: none;
+border-radius: 5px;
+width: 100%;
+font-size:.90rem;
+letter-spacing: 1px;
+cursor: pointer;
+transition:filter 0.4s ease-in-out;
+}
+
+.btn:hover{filter:opacity(0.9);}
+
+/* Styling Actual El */
+.w-section .grid{
+ display: grid;
+ grid-template-columns: repeat(3,1fr);
+ grid-gap: 2rem;
+ border-right: none;
+ border-top:none;
+ width: 50%;
+ padding-left:3rem;
+ border-left:1px solid rgba(255,255,255,0.6);
+}
+
+.w-section .container{
+display: flex;
+padding: 0 5rem;
+align-items: center;
+justify-content: center;
+}
+
+.w-section .container .current-temperature{
+width:50%;
+}
+
+.container .current-temperature .temperature{
+    flex-grow: 1;
+    text-align: center;
+}
+
+.container .current-temperature .w-img-wrapper{
+    flex-grow:1.25;
+    text-align: center;
+}
+
+.today-weather .row .card-body{
+display: flex;
+flex-direction: column;
+text-align: center;
+justify-content: center;
+align-items: center;
+position: relative;
+}
+
+.next-days .grid{
+display: grid;
+grid-template-columns:repeat(6,1fr);
+place-items: center;
+width: 100%;
+}
+
+.next-days .grid>*{text-align: center;}
+
+
+.modal .card-body form{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content:space-around;
+width: 100%;
+height: 100%;
+}
+    
+.modal .card-body{
+    background: #fff;
+    height:100%;
+    padding: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    position: relative;
+ }
+
+ .modal .card-body .close-btn{
+    position: absolute;
+    width: 40px;
+    height:25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 10px;
+    cursor: pointer;
+    transition: transform 0.4s linear;
+ }
+
+ .modal .card-body .close-btn:hover{transform: rotate(-180deg);}
+
+.modal .card-body .close-btn::before,
+.modal .card-body .close-btn::after{
+    position: absolute;
+    content: "";
+    width:3px;
+    height: 100%;
+    transform: rotate(40deg);
+    background:red;
+    border: 1px solid red;
+    border-radius: 50px;
+}
+
+.modal .card-body .close-btn::before{
+transform: rotate(-40deg);
+}
+
+.modal .card-body .form-control{
+    width: 100%;
+    text-align: center;
+}
+    
+.modal .card-body .form-control input[type="text"]{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+    
+.modal .card-body .form-control input[type="text"]:focus{outline: none;}
+  
+
+
+
+@media screen and (max-width:700px) {
+.today-weather{display: none;}
+
+.w-section .container{
+    flex-direction: column;
+}
+
+.container{padding:2em 1em;}
+
+.w-section .grid{
+border: none;
+width: 100%;
+position: relative;
+}
+
+.w-section .container{
+    flex-direction: column;
+    padding: 0;
+}
+
+.w-section .container .current-temperature{
+width: 100%;
+margin-bottom: 1rem;
+position: relative;
+}
+
+.w-section .grid::after,
+.w-section .container .current-temperature::after{
+position: absolute;
+content: "";
+width: 100%;
+height:1px;
+left: 0;
+background: #fff;
+top:165px;
+}
+
+}
